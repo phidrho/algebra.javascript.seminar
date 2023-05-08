@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import Messages from './components/Messages';
-import Input from './components/input';
+import Input from './components/Input';
+import Sidebar from './components/Sidebar';
 
 
 function randomName() {
@@ -36,20 +37,29 @@ class App extends React.Component {
   }
 
   onSendMessage = (message) => {
+    //TODO: ako je duljina 0
     const messages = this.state.messages
     messages.push({
       text: message,
       member: this.state.member
     })
-    this.setState({messages: messages})
+    this.setState({ messages: messages })
+  }
+
+  toggleSidebar = () => {
+    this.sidebar.toggleSidebar();
   }
 
   render() {
     return (
       <div className="App">
-      <div className="App-header">
-        <h1>Vedranova aplikacija za brbljanje putem Interneta!</h1>
-      </div>
+        <div className="App-header">
+          <button className='sidebar-btn' onClick={this.toggleSidebar}>Sidebar</button>
+          <h1>Vedranova aplikacija za brbljanje putem Interneta!</h1>
+          {/* prazan div ispod služi za flex pozicioniranje elemenata na headeru - 3 elementa na punu širinu ekrana tj. lijevo sredina desno - (tipka sidebar + naslov + prazan div) */}
+          <div></div>
+        </div>
+        <Sidebar ref={(reference) => (this.sidebar = reference)} />
         <Messages
           messages={this.state.messages}
           currentMember={this.state.member}
@@ -57,10 +67,7 @@ class App extends React.Component {
 
         <Input onSendMessage={this.onSendMessage} />
       </div>
-);
-
-
-
+    );
   }
 }
 
