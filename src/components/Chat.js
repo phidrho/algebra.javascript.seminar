@@ -20,7 +20,7 @@ function randomColor() {
 
 class Chat extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     //TODO: ovdje povezati sa Scaledrone servisom
   }
