@@ -14,7 +14,7 @@ function randomName() {
 }
 
 function randomColor() {
-  return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
+  return '#' + Math.floor(Math.random() * 0xFFFFFA).toString(16);
 }
 
 
@@ -22,19 +22,29 @@ class Chat extends React.Component {
 
   constructor(props) {
     super(props);
-    //TODO: ovdje povezati sa Scaledrone servisom
+    this.drone = new window.Scaledrone("cY0ZcGqYDQ4JF5Wi", {
+      data: this.state.member
+    });
+    this.drone.on('open', error => {
+      if (error) {
+        return console.error(error);
+      }
+      const member = { ...this.state.member };
+      member.id = this.drone.clientId;
+      this.setState({ member });
+    });
+    // ---
+    const room = this.drone.subscribe("observable-room");
+    // ---
+    room.on('data', (data, member) => {
+      const messages = this.state.messages;
+      messages.push({ member, text: data });
+      this.setState({ messages });
+    });
   }
 
   state = {
-    messages: [
-      {
-        text: "This is a test message!",
-        member: {
-          color: "blue",
-          username: "bluemoon"
-        }
-      }
-    ],
+    messages: [],
     member: {
       username: this.props.username,
       color: randomColor()
@@ -42,13 +52,11 @@ class Chat extends React.Component {
   }
 
   onSendMessage = (message) => {
-    //TODO: ako je duljina 0
-    const messages = this.state.messages
-    messages.push({
-      text: message,
-      member: this.state.member
-    })
-    this.setState({ messages: messages })
+    if (message.length===0) return; // quick fix for sending empty message
+    this.drone.publish({
+      room: "observable-room",
+      message
+    });
   }
 
   toggleSidebar = () => {
