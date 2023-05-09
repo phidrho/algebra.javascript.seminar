@@ -52,7 +52,7 @@ class Chat extends React.Component {
   }
 
   onSendMessage = (message) => {
-    if (message.length===0) return; // quick fix for sending empty message
+    if (message.length === 0) return; // quick fix for sending empty message
     this.drone.publish({
       room: "observable-room",
       message
