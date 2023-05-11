@@ -59,7 +59,7 @@ class Chat extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="chat">
         <Messages
           messages={this.state.messages}
           currentMember={this.state.member}
