@@ -1,7 +1,6 @@
 import React from 'react';
 import Messages from './Messages';
 import Input from './Input';
-import Sidebar from './Sidebar';
 import './Chat.css';
 
 // function randomName() {
@@ -58,20 +57,9 @@ class Chat extends React.Component {
     });
   }
 
-  toggleSidebar = () => {
-    this.sidebar.toggleSidebar();
-  }
-
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <button className='sidebar-btn' onClick={this.toggleSidebar}>Sidebar</button>
-          <h1>Vedranova aplikacija za brbljanje putem Interneta! - {this.props.username}</h1>
-          {/* prazan div ispod služi za flex pozicioniranje elemenata na headeru - 3 elementa na punu širinu ekrana tj. lijevo sredina desno - (tipka sidebar + naslov + prazan div) */}
-          <div></div>
-        </div>
-        <Sidebar ref={(reference) => (this.sidebar = reference)} />
+      <div className="chat">
         <Messages
           messages={this.state.messages}
           currentMember={this.state.member}
