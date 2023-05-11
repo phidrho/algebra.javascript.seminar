@@ -1,9 +1,10 @@
-.App {
+.chat {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 90vh; /* temp fix */
+  height: 100vh;
 }
+
 
 .App-header {
   background-color: #262626;
