@@ -18,6 +18,7 @@ class Messages extends Component {
     const className = messageFromMe ?
       "Messages-message currentMember" : "Messages-message";
     return (
+      // TODO umjesto text u redu ispod generirati UUID
       <li className={className} key={text + "_" + new Date().getTime().toString()}>
         <span
           className="avatar"
