@@ -9,7 +9,7 @@ const Login = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault(); // isključuje brisanje podataka na refresh stranice tj. blokira refresh stranice
         props.onLogin(usernameText);
-        navigate("/");
+        navigate("/algebra.javascript.seminar/");
     }
 
     return <div className="container">
