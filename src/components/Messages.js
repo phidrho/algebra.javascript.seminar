@@ -1,5 +1,6 @@
 import { Component } from "react";
 import React from "react";
+import uuid from "react-uuid";
 
 class Messages extends Component {
   render() {
@@ -18,8 +19,7 @@ class Messages extends Component {
     const className = messageFromMe ?
       "Messages-message currentMember" : "Messages-message";
     return (
-      // TODO umjesto text u redu ispod generirati UUID
-      <li className={className} key={text + "_" + new Date().getTime().toString()}>
+      <li className={className} key={uuid()}>
         <span
           className="avatar"
           style={{ backgroundColor: member.clientData.color }}
