@@ -1,11 +1,12 @@
 import { Component } from "react";
 import React from "react";
+import uuid from "react-uuid";
 
 class Messages extends Component {
   render() {
     const { messages } = this.props;
     return (
-      <ul className="Messages-list">
+      <ul className="messages-list">
         {messages.map(m => this.renderMessage(m))}
       </ul>
     );
@@ -16,15 +17,14 @@ class Messages extends Component {
     const { currentMember } = this.props;
     const messageFromMe = member.id === currentMember.id;
     const className = messageFromMe ?
-      "Messages-message currentMember" : "Messages-message";
+      "messages-message current-member" : "messages-message";
     return (
-      // TODO umjesto text u redu ispod generirati UUID
-      <li className={className} key={text + "_" + new Date().getTime().toString()}>
+      <li className={className} key={uuid()}>
         <span
           className="avatar"
           style={{ backgroundColor: member.clientData.color }}
         />
-        <div className="Message-content">
+        <div className="message-content">
           <div className="username">
             {member.clientData.username}
           </div>

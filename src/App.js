@@ -27,7 +27,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Header toggleSidebar={this.toggleSidebar} username={this.state.username} handleLogout={this.handleLogout} />
         <Sidebar ref={(reference) => (this.sidebar = reference)} />
         <Routes>
