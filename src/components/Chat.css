@@ -6,7 +6,7 @@
 }
 
 
-.App-header {
+.app-header {
   background-color: #262626;
   overflow: visible;
   width: 100%;
@@ -15,7 +15,7 @@
   justify-content: space-between;
 }
 
-.Messages-list {
+.messages-list {
   padding: 20px 0;
   max-width: 900px;
   width: 100%;
@@ -26,26 +26,26 @@
   overflow: auto;
 }
 
-.Messages-message {
+.messages-message {
   display: flex;
   margin-top: 10px;
 }
 
-.Messages-message.currentMember {
+.messages-message.current-member {
   /*justify-content: flex-end;*/
   flex-direction: row-reverse;
   text-align: right;
 }
 
-.Message-content {
+.message-content {
   display: inline-block;
 }
 
-.currentMember>.Message-content {
+.current-member > .message-content {
   align-items: flex-end;
 }
 
-.Messages-message>.avatar {
+.messages-message > .avatar {
   height: 35px;
   width: 35px;
   border-radius: 50%;
@@ -53,14 +53,14 @@
   margin: 0 10px -10px;
 }
 
-.Message-content>.username {
+.message-content > .username {
   display: block;
   color: gray;
   font-size: 14px;
   padding-bottom: 4px;
 }
 
-.Message-content>.text {
+.message-content > .text {
   padding: 10px;
   max-width: 400px;
   margin: 0;
@@ -70,7 +70,7 @@
   display: inline-block;
 }
 
-.currentMember>.Message-content .text {
+.current-member > .message-content .text {
   background-color: orangered;
 }
 
