@@ -1,6 +1,7 @@
 import { Component } from "react";
 import React from "react";
 import uuid from "react-uuid";
+import "./Messages.css";
 
 class Messages extends Component {
   render() {
@@ -16,8 +17,9 @@ class Messages extends Component {
     const { member, text } = message;
     const { currentMember } = this.props;
     const messageFromMe = member.id === currentMember.id;
-    const className = messageFromMe ?
-      "messages-message current-member" : "messages-message";
+    const className = messageFromMe
+      ? "messages-message current-member"
+      : "messages-message";
     return (
       <li className={className} key={uuid()}>
         <span

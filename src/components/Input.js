@@ -18,18 +18,28 @@ class Input extends Component {
 
   render() {
     return (
-      <div className="input">
+      <>
         <form onSubmit={e => this.onSubmit(e)}>
-          <input
-            onChange={e => this.onChange(e)}
-            value={this.state.text}
-            type="text"
-            placeholder="Enter your message and press ENTER"
-            autoFocus={true}
-          />
-          <button className="btn-send">Send</button>
+          <div class="field has-addons">
+            <p class="control is-expanded">
+              <input
+                className="input"
+                type="text"
+                onChange={e => this.onChange(e)}
+                value={this.state.text}
+                name="message-box"
+                id="message-box"
+                placeholder="Unesi tekst poruke"
+                autoFocus={true}
+              />
+            </p>
+            <p class="control">
+              <input className="button is-success" type="submit" name="message-send" id="message-send" value="Pošalji" />
+            </p>
+          </div>
         </form>
-      </div>
+      </>
+
     );
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Messages from './Messages';
 import Input from './Input';
-import './Chat.css';
+
 
 // function randomName() {
 //   const adjectives = ["autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark", "summer", "icy", "delicate", "quiet", "white", "cool", "spring", "winter", "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue", "billowing", "broken", "cold", "damp", "falling", "frosty", "green", "long", "late", "lingering", "bold", "little", "morning", "muddy", "old", "red", "rough", "still", "small", "sparkling", "throbbing", "shy", "wandering", "withered", "wild", "black", "young", "holy", "solitary", "fragrant", "aged", "snowy", "proud", "floral", "restless", "divine", "polished", "ancient", "purple", "lively", "nameless"];
@@ -55,18 +55,24 @@ class Chat extends React.Component {
       room: "observable-room",
       message
     });
+    const chatHistory = document.getElementById("chat");
+    chatHistory.scrollTop = chatHistory.scrollHeight;
   }
 
   render() {
     return (
-      <div className="chat">
-        <Messages
-          messages={this.state.messages}
-          currentMember={this.state.member}
-        />
+        <>
+          <div id="chat">
+            <Messages
+              messages={this.state.messages}
+              currentMember={this.state.member}
+            />
+          </div>
 
-        <Input onSendMessage={this.onSendMessage} />
-      </div>
+          <div id="message-input-box">
+            <Input onSendMessage={this.onSendMessage} />
+          </div>
+        </>
     );
   }
 }

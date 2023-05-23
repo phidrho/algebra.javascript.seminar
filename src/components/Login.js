@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Login.css'; // TODO: promijeniti dizajn
 
 const Login = (props) => {
     const [usernameText, setUsernameText] = useState("");
@@ -12,15 +11,30 @@ const Login = (props) => {
         navigate("/algebra.javascript.seminar/");
     }
 
-    return <div className="container">
-        <form className="login-form" onSubmit={handleSubmit}>
-            <label htmlFor="title">
-                <h1>Login</h1>
-            </label>
-            <input id="title" type="text" placeholder="Unesi korisničko ime" required value={usernameText} onChange={(e) => setUsernameText(e.target.value)} />
-            <input type="submit" className="login-btn" value="Login" />
-        </form>
-    </div>
+    return (
+        <main>
+            <div className="container">
+                <div className="columns is-centered">
+                    <div className="column is-5-tablet is-4-desktop is-6-widescreen">
+                        <form onSubmit={handleSubmit} className="box">
+                            <div className="field">
+                                <label htmlFor="username" className="label">Unesi željeno korisničko ime:</label>
+                                <div className="control">
+                                    <input id="welcome-login-email" type="text" name="username" placeholder="Čončika" className="input" autoComplete={usernameText} required value={usernameText} onChange={(e) => setUsernameText(e.target.value)} />
+                                </div>
+                            </div>
+                            <div className="field">
+                                <input type="submit" className="button is-success" value="Prijava" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+    );
+
 }
 
 export default Login;
