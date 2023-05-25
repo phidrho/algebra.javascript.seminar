@@ -27,7 +27,7 @@ body {
 
 #website {
   display: grid;
-  grid-template-rows: minmax(64px, 64px) minmax(456px, 12fr) minmax(50px, 1fr);
+  grid-template-rows: minmax(90px, 90px) minmax(456px, 12fr) minmax(90px, 1fr);
   grid-template-areas:
       "header"
       "app-area"
@@ -40,7 +40,6 @@ body {
   grid-area: app-area;
   overflow: auto;
   padding: 1em;
-  grid-area: app-area;
   align-self: auto;
 }
 
@@ -54,7 +53,7 @@ body {
 
 header {
   grid-area: header;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 0.7fr 0.3fr;
   grid-template-areas:
       "header-title header-options";
   display: grid;
@@ -63,7 +62,7 @@ header {
 
 div #header-title {
   grid-area: header-title;
-  padding-left: 32px;
+  padding: 10px 0 0 32px;
 }
 
 div #header-options {
@@ -129,7 +128,7 @@ main div#message-input-box {
   margin: 20px 20%;
 }
 
-footer {
+#website > footer {
   color: #4a4a4a;
   grid-area: footer;
   align-self: stretch;

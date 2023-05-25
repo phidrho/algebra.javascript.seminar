@@ -15,7 +15,7 @@ const Login = (props) => {
         <main>
             <div className="container">
                 <div className="columns is-centered">
-                    <div className="column is-5-tablet is-4-desktop is-6-widescreen">
+                    <div className="column is-8">
                         <form onSubmit={handleSubmit} className="box">
                             <div className="field">
                                 <label htmlFor="username" className="label">Unesi željeno korisničko ime:</label>

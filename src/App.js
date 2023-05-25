@@ -29,48 +29,51 @@ class App extends React.Component {
         <header>
           <Header username={this.state.username} handleLogout={this.handleLogout} />
         </header>
-        <div id="app">
-            <Routes>
 
-              <Route
-                path="/algebra.javascript.seminar/"
-                element={
-                  this.state.username
-                  ? <>
-                      <aside>
-                        <Sidebar ref={(reference) => (this.sidebar = reference)} />
-                      </aside>
-                      <main id="chat-view">
-                        <Chat username={this.state.username} />
-                      </main>
-                    </>
-                  : <Navigate to="/algebra.javascript.seminar/login" />
-                }
-              />
+        <Routes>
 
-              <Route
-                path="/algebra.javascript.seminar/login"
-                element={<Login onLogin={this.handleLogin} />}
-              />
+          <Route
+            path="/algebra.javascript.seminar/"
+            element={
+              this.state.username
+                ? <>
+                  <div id="app">
+                    <aside>
+                      <Sidebar ref={(reference) => (this.sidebar = reference)} />
+                    </aside>
+                    <main id="chat-view">
+                      <Chat username={this.state.username} />
+                    </main>
+                  </div>
+                </>
+                : <Navigate to="/algebra.javascript.seminar/login" />
+            }
+          />
 
-              <Route
-                path="/algebra.javascript.seminar/about"
-                element={
-                  this.state.username
-                  ? <>
-                      <aside>
-                        <Sidebar ref={(reference) => (this.sidebar = reference)} />
-                      </aside>
-                      <main id="app-view">
-                        <About />
-                      </main>
-                    </>
-                  : <Navigate to="/algebra.javascript.seminar/login" />
-                }
-              />
+          <Route
+            path="/algebra.javascript.seminar/login"
+            element={<Login onLogin={this.handleLogin} />}
+          />
 
-            </Routes>
-        </div>
+          <Route
+            path="/algebra.javascript.seminar/about"
+            element={
+              this.state.username
+                ? <>
+                  <div id="app">
+                    <aside>
+                      <Sidebar ref={(reference) => (this.sidebar = reference)} />
+                    </aside>
+                    <main id="app-view">
+                      <About />
+                    </main>
+                  </div>
+                </>
+                : <Navigate to="/algebra.javascript.seminar/login" />
+            }
+          />
+
+        </Routes>
         <footer>
           <Footer />
         </footer>

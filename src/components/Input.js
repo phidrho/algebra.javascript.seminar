@@ -20,8 +20,8 @@ class Input extends Component {
     return (
       <>
         <form onSubmit={e => this.onSubmit(e)}>
-          <div class="field has-addons">
-            <p class="control is-expanded">
+          <div className="field has-addons">
+            <p className="control is-expanded">
               <input
                 className="input"
                 type="text"
@@ -33,7 +33,7 @@ class Input extends Component {
                 autoFocus={true}
               />
             </p>
-            <p class="control">
+            <p className="control">
               <input className="button is-success" type="submit" name="message-send" id="message-send" value="Pošalji" />
             </p>
           </div>
