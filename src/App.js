@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Chat from './components/Chat';
 import Login from './components/Login';
+import Chat from './components/Chat';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import About from './components/About';
@@ -9,14 +9,50 @@ import Footer from './components/Footer';
 
 import './App.css';
 
+const imageUrlToBase64 = async url => {
+  const response = await fetch(url);
+  const blob = await response.blob();
+  return new Promise((onSuccess, onError) => {
+    try {
+      const reader = new FileReader();
+      reader.onload = function () { onSuccess(this.result) };
+      reader.readAsDataURL(blob);
+    } catch (e) {
+      onError(e);
+    }
+  });
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: "" };
+
+    this.state = {
+      username: "",
+      avatarImage: "",
+    };
+
+    this.avatarImageBaza64 = "";
+
+    imageUrlToBase64('https://picsum.photos/128')
+      .then(rezultat => {
+        this.avatarImageBaza64 = rezultat;
+      });
+
+    setTimeout(this.setAvatarState, 1000);
   }
 
+  setAvatarState = () => {
+    this.state.avatarImage = this.avatarImageBaza64;
+    // console.log(this.state);
+  }
+
+  sleep = ms => new Promise(r => setTimeout(r, ms));
+
   handleLogin = (username) => {
-    this.setState({ username });
+    this.setState({
+      username: username,
+    });
   }
 
   handleLogout = () => {
@@ -26,10 +62,6 @@ class App extends React.Component {
   render() {
     return (
       <div id="website">
-        <header>
-          <Header username={this.state.username} handleLogout={this.handleLogout} />
-        </header>
-
         <Routes>
 
           <Route
@@ -37,12 +69,15 @@ class App extends React.Component {
             element={
               this.state.username
                 ? <>
+                  <header>
+                    <Header username={this.state.username} handleLogout={this.handleLogout} />
+                  </header>
                   <div id="app">
                     <aside>
                       <Sidebar ref={(reference) => (this.sidebar = reference)} />
                     </aside>
                     <main id="chat-view">
-                      <Chat username={this.state.username} />
+                      <Chat username={this.state.username} avatarImage={this.state.avatarImage} />
                     </main>
                   </div>
                 </>
@@ -52,7 +87,13 @@ class App extends React.Component {
 
           <Route
             path="/algebra.javascript.seminar/login"
-            element={<Login onLogin={this.handleLogin} />}
+            element={<>
+              <header className="login">
+                <Header username={this.state.username} handleLogout={this.handleLogout} />
+              </header>
+              <Login onLogin={this.handleLogin} />
+
+            </>}
           />
 
           <Route
@@ -60,6 +101,9 @@ class App extends React.Component {
             element={
               this.state.username
                 ? <>
+                  <header>
+                    <Header username={this.state.username} handleLogout={this.handleLogout} />
+                  </header>
                   <div id="app">
                     <aside>
                       <Sidebar ref={(reference) => (this.sidebar = reference)} />

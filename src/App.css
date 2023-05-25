@@ -27,7 +27,7 @@ body {
 
 #website {
   display: grid;
-  grid-template-rows: minmax(90px, 90px) minmax(456px, 12fr) minmax(90px, 1fr);
+  grid-template-rows: minmax(90px, 90px) minmax(340px, 12fr) minmax(135px, 1fr);
   grid-template-areas:
       "header"
       "app-area"
@@ -46,18 +46,23 @@ body {
 #app {
   grid-area: app-area;
   display: grid;
-  grid-template-columns: 32px minmax(550px, 1fr);
-  grid-template-rows: minmax(456px, 1fr);
+  grid-template-columns: 32px minmax(340px, 1fr);
+  grid-template-rows: minmax(375px, 1fr);
   grid-template-areas: "sidebar main";
 }
 
 header {
   grid-area: header;
-  grid-template-columns: 0.7fr 0.3fr;
+  grid-template-columns: 1fr 0.5fr;
   grid-template-areas:
       "header-title header-options";
   display: grid;
   background-color: var(--color-header);
+}
+
+header.login {
+  grid-template-columns: 1fr;
+  grid-template-areas: "header-title";
 }
 
 div #header-title {
@@ -121,19 +126,19 @@ main div#chat {
   height: 100%;
   overflow-y: scroll;
   vertical-align: bottom;
+  padding: 1rem 2rem;
 }
 
 main div#message-input-box {
   align-self: end;
-  margin: 20px 20%;
+  margin: 20px 10%;
 }
 
 #website > footer {
   color: #4a4a4a;
   grid-area: footer;
   align-self: stretch;
-  padding-top: 10px;
-  padding-left: 32px;
+  padding: 10px;
   background-color: var(--color-footer);
 }
 

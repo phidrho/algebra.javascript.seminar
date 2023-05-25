@@ -18,9 +18,9 @@ const Login = (props) => {
                     <div className="column is-8">
                         <form onSubmit={handleSubmit} className="box">
                             <div className="field">
-                                <label htmlFor="username" className="label">Unesi željeno korisničko ime:</label>
+                                <label htmlFor="welcome-login-email" className="label">Unesi željeno korisničko ime:</label>
                                 <div className="control">
-                                    <input id="welcome-login-email" type="text" name="username" placeholder="Čončika" className="input" autoComplete={usernameText} required value={usernameText} onChange={(e) => setUsernameText(e.target.value)} />
+                                    <input id="welcome-login-email" type="text" name="username" placeholder="Čončika" className="input" required value={usernameText} onChange={(e) => setUsernameText(e.target.value)} />
                                 </div>
                             </div>
                             <div className="field">
@@ -31,8 +31,6 @@ const Login = (props) => {
                 </div>
             </div>
         </main>
-
-
     );
 
 }
