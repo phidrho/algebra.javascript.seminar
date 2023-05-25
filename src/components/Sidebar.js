@@ -1,47 +1,18 @@
 import React from 'react';
-import './Sidebar.css'
 import { Link } from 'react-router-dom';
 
 class Sidebar extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isOpen: false,
-        }
-
-        this.toggleSidebar = this.toggleSidebar.bind(this);
-    }
-
-    toggleSidebar() {
-        const { isOpen } = this.state;
-        this.setState({ isOpen: !isOpen });
-    }
-
-
-
     render() {
-        const { isOpen } = this.state;
-
         return (
-            <div className="container-fluid mt-3">
-                <div className={`sidebar ${isOpen === true ? "active" : ""}`}>
-                    <div className="sd-header">
-                        <h4>Sidebar Header</h4>
-                        <div className="btn btn-primary" onClick={this.toggleSidebar}>
-                            Close sidebar
-                        </div>
-                    </div>
-                    <div className="sd-body">
-                        <ul>
-                            <li><Link to="/algebra.javascript.seminar/" className="sd-link">Chat</Link></li>
-                            <li><Link to="/algebra.javascript.seminar/about/" className="sd-link">About</Link></li>
-                        </ul>
-                    </div>
+            <>
+                <div className="has-tooltip-right" data-tooltip="Čavrljaonica">
+                    <Link to="/algebra.javascript.seminar/"><span className="iconify has-tooltip-right" data-icon="mdi:chat" data-inline="false"></span></Link>
                 </div>
-                <div className={`sidebar-overlay ${isOpen === true ? "active" : ""}`} onClick={this.toggleSidebar}></div>
-            </div>
+                <div className="has-tooltip-right" data-tooltip="O nama">
+                    <Link to="/algebra.javascript.seminar/about/"><span className="iconify" data-icon="mdi:about" data-inline="false"></span></Link>
+                </div>
+            </>
         )
     }
 }

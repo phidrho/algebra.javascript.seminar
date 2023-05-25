@@ -1,0 +1,19 @@
+.message {
+    box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02);
+}
+
+.message>.message-header {
+    justify-content: flex-start;
+}
+
+.messages-message {
+    display: flex;
+    margin-top: 10px;
+
+}
+
+.messages-message.current-member {
+    /*justify-content: flex-end;*/
+    flex-direction: row-reverse;
+    text-align: right;
+}

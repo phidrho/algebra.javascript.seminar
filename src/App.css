@@ -1,5 +1,174 @@
-.app {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
+:root{
+  --color-background: hsl(0, 0%, 96%);
+  --color-header: hsl(171, 100%, 41%);
+  --color-footer: hsl(0, 0%, 86%);
+  --color-aside: hsl(171, 100%, 30%);
+  --color-aside-hover: hsl(171, 100%, 20%);
+  --color-aside-icons: hsl(0, 0%, 93%);
+  --color-toolbar: hsla(171, 100%, 30%, 0.60);
+  --color-toolbar-hover: hsl(171, 100%, 20%);
+  --color-toolbar-icons: hsl(0, 0%, 93%);
+  --color-statusbar: hsl(0, 0%, 93%);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+#website {
+  display: grid;
+  grid-template-rows: minmax(90px, 90px) minmax(340px, 12fr) minmax(135px, 1fr);
+  grid-template-areas:
+      "header"
+      "app-area"
+      "footer";
+  height: 100vh;
+  background-color: var(--color-background);
+}
+
+#website > main {
+  grid-area: app-area;
+  overflow: auto;
+  padding: 1em;
+  align-self: auto;
+}
+
+#app {
+  grid-area: app-area;
+  display: grid;
+  grid-template-columns: 32px minmax(340px, 1fr);
+  grid-template-rows: minmax(375px, 1fr);
+  grid-template-areas: "sidebar main";
+}
+
+header {
+  grid-area: header;
+  grid-template-columns: 1fr 0.5fr;
+  grid-template-areas:
+      "header-title header-options";
+  display: grid;
+  background-color: var(--color-header);
+}
+
+header.login {
+  grid-template-columns: 1fr;
+  grid-template-areas: "header-title";
+}
+
+div #header-title {
+  grid-area: header-title;
+  padding: 10px 0 0 32px;
+}
+
+div #header-options {
+  grid-area: header-options;
+  display: flex;
+  justify-content: flex-end;
+  align-self: center;
+  padding-right: 32px;
+}
+
+div #header-options button {
+  margin-left: 5px;
+}
+
+aside {
+  grid-area: sidebar;
+  background-color: var(--color-aside);
+}
+
+aside div {
+  height: 32px;
+}
+
+aside div:hover {
+  background-color: var(--color-aside-hover);
+  cursor: pointer;
+}
+
+aside svg.iconify {
+  font-size: 32px;
+  color: var(--color-aside-icons);
+}
+
+#app main {
+  grid-area: main;
+}
+
+#app main#app-view {
+  overflow: auto;
+  padding: 1em;
+}
+
+#app main#chat-view {
+  align-self: stretch;
+  display: grid;
+  grid-template-rows: minmax(100px, 1fr) minmax(64px, 64px);
+  grid-template-areas:
+      "chat"
+      "input-box";
+}
+
+main div#chat {
+  grid-area: chat;
+  align-self: end;
+  z-index: 1;
+  height: 100%;
+  overflow-y: scroll;
+  vertical-align: bottom;
+  padding: 1rem 2rem;
+}
+
+main div#message-input-box {
+  align-self: end;
+  margin: 20px 10%;
+}
+
+#website > footer {
+  color: #4a4a4a;
+  grid-area: footer;
+  align-self: stretch;
+  padding: 10px;
+  background-color: var(--color-footer);
+}
+
+/* BULMA FIXES */
+#header-options > .field.has-addons {
+  margin-bottom: 0;
+}
+
+.table tr.is-selected {
+  background-color: var(--color-aside);
+  color: var(--color-aside-icons);
+}
+
+.tabs.is-boxed a:hover {
+  background-color: #e8e8e8;
+  border-bottom-color: #dbdbdb;
+}
+
+.table.is-hoverable tbody tr:not(.is-selected):hover {
+  background-color: #e8e8e8;
+}
+
+.table.is-hoverable.is-striped tbody tr:not(.is-selected):hover {
+  background-color: #e8e8e8;
+}
+
+.table.is-hoverable.is-striped tbody tr:not(.is-selected):hover:nth-child(even) {
+  background-color: #e8e8e8;
+}
+
+.table.is-striped tbody tr:not(.is-selected):nth-child(even) {
+  background-color: #f2f2f2;
+}
