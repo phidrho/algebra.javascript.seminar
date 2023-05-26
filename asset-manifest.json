@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/algebra.javascript.seminar/static/css/main.5a231ff8.css",
-    "main.js": "/algebra.javascript.seminar/static/js/main.9b19a819.js",
+    "main.js": "/algebra.javascript.seminar/static/js/main.fa232139.js",
     "index.html": "/algebra.javascript.seminar/index.html",
     "main.5a231ff8.css.map": "/algebra.javascript.seminar/static/css/main.5a231ff8.css.map",
-    "main.9b19a819.js.map": "/algebra.javascript.seminar/static/js/main.9b19a819.js.map"
+    "main.fa232139.js.map": "/algebra.javascript.seminar/static/js/main.fa232139.js.map"
   },
   "entrypoints": [
     "static/css/main.5a231ff8.css",
-    "static/js/main.9b19a819.js"
+    "static/js/main.fa232139.js"
   ]
 }
