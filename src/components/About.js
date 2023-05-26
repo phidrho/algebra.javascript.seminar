@@ -37,7 +37,7 @@ const About = () => {
             <div className="content is-normal">
                 <p>Na početnoj stranici (pogledaj interaktivni okvir ispod) vidimo naslovnicu sa okvirom za prijavu u kojem možemo odabrati željeno korisničko ime za sebe. Nakon unosa željenog korisničkog imena u za to predviđen okvir potrebno je kliknuti na gumb "Prijava" za pokretanje aplikacije.</p>
                 <div style={{ border: "3px solid", margin: "auto", width: "40%", minWidth: "700px" }} >
-                    <embed className="" src="/algebra.javascript.seminar/login" style={{ width: "100%", height: "600px" }}></embed>
+                    <embed className="" src="/algebra.javascript.seminar/" style={{ width: "100%", height: "600px" }}></embed>
                 </div>
                 <div style={{ margin: "auto", width: "40%", minWidth: "700px" }}>
                 <strong><em><small><figcaption>Hmm... mogu li se možda s ovim iznad ulogirati u aplikaciju unutar aplikacije, unutar aplikacije, unutar aplikacije...???</figcaption></small></em></strong>
